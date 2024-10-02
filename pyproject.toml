@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geryxyz.restore_my_windows_please"
+version = "2024.10.0" # https://peps.python.org/pep-0440/
+description = "A Python package for restoring Windows to a previous state."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "tqdm~=4.65.0",
+    "pytest~=7.3.1",
+    "structlog~=23.1.0",
+    "rich~=13.4.2",
+    "argparse~=1.4.0",
+    "pydantic~=2.9.0",
+    "ahk~=1.8.0"
+]
+
+[project.urls]
+repository = "https://github.com/geryxyz/restore-my-windows-please"
