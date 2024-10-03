@@ -1,0 +1,3 @@
+[console_scripts]
+restore-my-windows-please = geryxyz.restore_my_windows_please.restore_please:main
+save-my-windows-please = geryxyz.restore_my_windows_please.save_please:main

@@ -5,6 +5,7 @@ setup.py
 src/geryxyz.restore_my_windows_please.egg-info/PKG-INFO
 src/geryxyz.restore_my_windows_please.egg-info/SOURCES.txt
 src/geryxyz.restore_my_windows_please.egg-info/dependency_links.txt
+src/geryxyz.restore_my_windows_please.egg-info/entry_points.txt
 src/geryxyz.restore_my_windows_please.egg-info/requires.txt
 src/geryxyz.restore_my_windows_please.egg-info/top_level.txt
 src/geryxyz/restore_my_windows_please/__init__.py
