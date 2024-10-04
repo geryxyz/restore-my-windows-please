@@ -37,11 +37,14 @@ class LocationDeclaration(BaseModel):
     def restore(self):
         ahk = AHK()
         windows = ahk.list_windows()
+        logger.info("Looking for...", title_regex=self.window_title_regex, process_regex=self.process_regex)
         for window in windows:
             title_match = re.search(self.window_title_regex, window.title)
             process_match = re.search(self.process_regex, window.process_name)
             if title_match and process_match:
+                logger.info("Matched window", title_match=title_match, process_match=process_match)
                 if self.state == WindowState.MAXIMIZED:
+                    window.move(self.left, self.top)
                     window.maximize()
                     logger.info("Maximized window", window=window.title, process=window.process_name)
                 elif self.state == WindowState.MINIMIZED:

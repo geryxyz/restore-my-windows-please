@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 from pathlib import Path
 
 import structlog
@@ -23,12 +24,15 @@ def main():
         position = window.get_position()
         minmax_state = window.get_minmax()
         state = WindowState(int(minmax_state))
-        if state == WindowState.MINIMIZED:
-            logger.warn("Skipping minimized window", window=window.title, process=window.process_name)
+        if window.process_name == "explorer.exe" and window.title == "Program Manager":
+            logger.warn("Skipping desktop window", window=window.title, process=window.process_name)
+            continue
+        if window.process_name == "explorer.exe" and window.title == "":
+            logger.warn("Skipping desktop environment", window=window.title, process=window.process_name)
             continue
         declaration = LocationDeclaration(
-            process_regex=window.process_name,
-            window_title_regex=window.title,
+            process_regex="^" + re.escape(window.process_name) + "$",
+            window_title_regex="^" + re.escape(window.title) + "$",
             top=position.y,
             left=position.x,
             width=position.width,
